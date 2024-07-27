@@ -1,10 +1,10 @@
 name: "Build and push Super Mario Docker image with static tag to Docker Hub"
  
- on:
-   push:
-     branches:
+on:
+  push:
+    branches:
       - main
-git 
+      
 env:
   VERSION: $(( $(cat version.txt) + 1 ))
   
