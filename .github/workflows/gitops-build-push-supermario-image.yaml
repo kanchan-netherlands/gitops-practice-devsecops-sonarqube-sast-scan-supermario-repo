@@ -22,5 +22,5 @@ jobs:
  
       - name: Build and Push Docker Image
         run: |
-          docker build -t docker.io/ibrt2021/supermariogitopsproject:${{ env.VERSION }} .
-          docker push docker.io/ibrt2021/supermariogitopsproject:${{ env.VERSION }}
+          docker build -t docker.io/kanchan1986/supermariogame:${{ env.VERSION }} .
+          docker push docker.io/kanchan1986/supermariogame:${{ env.VERSION }}
