@@ -30,4 +30,4 @@ jobs:
         with:
           input: /github/workspace/supermariolatestdockerimage.tar
           exit-code: '1'
-          severity: 'CRITICAL,HIGH'
+          severity: 'CRITICAL,HIGH' 
