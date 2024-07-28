@@ -5,8 +5,6 @@ on:
     branches:
       - main
  
-env:
-  VERSION: $(( $(cat version.txt) + 1 ))
   
 jobs:
   
@@ -22,8 +20,8 @@ jobs:
         
       - name: Get Docker Image from Docker Hub
         run: |
-          docker pull docker.io/kanchan1986/supermariogameproject:${{ env.VERSION }}
-          docker save -o supermariolatestdockerimage.tar docker.io/kanchan1986/supermariogameproject:${{ env.VERSION }}
+          docker pull docker.io/kanchan1986/supermariogameproject:1
+          docker save -o supermariolatestdockerimage.tar docker.io/kanchan1986/supermariogameproject:1
      
       - name: Run Trivy vulnerability scanner in tarball mode
         uses: aquasecurity/trivy-action@master
