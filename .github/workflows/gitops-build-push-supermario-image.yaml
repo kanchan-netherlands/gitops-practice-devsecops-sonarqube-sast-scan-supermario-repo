@@ -1,10 +1,10 @@
 
 name: "Build and push Super Mario Docker image with static tag to Docker Hub"
 
-#on:
- # push:
-  #  branches:
-   #   - main
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   build_push_supermario_docker_image: 
