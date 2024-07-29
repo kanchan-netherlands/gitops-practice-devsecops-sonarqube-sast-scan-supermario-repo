@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - image: kanchan1986/supermariogameproject:1
-        name: supermariogame-container
+        name:  supermariogame-container
         ports:
         - containerPort: 8080
 
@@ -31,5 +31,3 @@ spec:
     port: 8600
     targetPort: 8080
   type: LoadBalancer
-
- 
