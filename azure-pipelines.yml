@@ -21,19 +21,36 @@ variables:
 
 stages:
 - stage: Build
-  displayName: Build and push stage
+  displayName: Build 
   jobs:
   - job: Build
     displayName: Build
     pool:
       vmImage: $(vmImageName)
+
     steps:
     - task: Docker@2
-      displayName: Build and push an image to container registry
+      displayName: Build 
       inputs:
-        command: buildAndPush
-        repository: $(imageRepository)
+        command: build
         dockerfile: $(dockerfilePath)
-        containerRegistry: $(dockerRegistryServiceConnection)
-        tags: |
-          $(tag)
+       
+- stage: Test
+  displayName: test
+  dependsOn: Build
+  jobs:
+  - job: Test
+    displayName: Test
+
+    steps:
+    - task: VSTest@2
+      timeoutInMinutes: 0
+       
+      inputs:
+        testSelector: 'testAssemblies'
+        testAssemblyVer2: |
+          **\bin\**\*test.dll
+          **\bin\**\*tests.dll
+        searchFolder: '$(System.DefaultWorkingDirectory)' 
+
+- 
